@@ -21,7 +21,7 @@ Estou aprendendo. O objetivo é eu entender e implementar, não receber código 
 - Windows com WSL Ubuntu, VS Code
 - Projeto em `~/pedidos-api`
 - Maven (o do apt é antigo e gera warnings de `sun.misc.Unsafe`; plano de trocar pelo do SDKMAN)
-- Java alvo: 21 (o `pom.xml` ainda está em 17)
+- Java alvo: 21 (JDK 25 também instalado; `update-alternatives` aponta para o 21)
 
 ## Convenções do projeto
 
@@ -47,20 +47,16 @@ Estou aprendendo. O objetivo é eu entender e implementar, não receber código 
 
 ## Etapa atual
 
-**Fase 0: corrigir a estrutura do projeto Maven.**
+**Fase 0: desafios de Linux e Git.**
 
-O archetype gerou o projeto aninhado em `~/pedidos-api/pedidos-api`. O `.git` e o `.github` estão na pasta de fora, não há nomes repetidos, não há `.gitignore` nem `mvnw`.
+Estrutura Maven concluída e publicada (commit `bb26e24`, `main` rastreando `origin/main`): Java 21 (`java`, `javac` e `mvn`), JUnit 5, `BUILD SUCCESS`.
 
-Checklist:
+Pendências pequenas:
 
-- [ ] Mover o conteúdo da pasta interna para a raiz (`dotglob`, `mv`, `rmdir`) e apagar `target/`
-- [ ] Criar `.gitignore` (`target/`, `.idea/`, `*.iml`, `.vscode/`)
-- [ ] Instalar JDK 21 e mudar `maven.compiler.release` para `21`
-- [ ] Garantir JUnit 5 (`junit-jupiter`, `scope test`) e surefire 3.x
-- [ ] `mvn clean test` com `BUILD SUCCESS`
-- [ ] Revisar `git status`, depois commit `chore: estrutura inicial maven com java 21 e junit 5` e push
+- [ ] Gerar `mvnw` (`mvn wrapper:wrapper`) e fixar versões dos plugins clean/resources (hoje vêm do Maven 3.8.7: 2.5/2.6)
+- [ ] Quebra de linha final no `.gitignore`
 
-Depois disso: desafios de Linux e Git da Fase 0, e então a Fase 1 na branch `feat/dominio-pedido`.
+Próximo: `info.sh`, análise de log, conflito, revert vs reset. Depois a Fase 1 na branch `feat/dominio-pedido`.
 
 ## Perguntas em aberto (eu preciso responder)
 
